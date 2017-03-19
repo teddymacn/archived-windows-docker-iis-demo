@@ -1,0 +1,32 @@
+# Files ignored
+Thumbs.db
+*.obj
+*.pdb
+*.user
+*.vspscc
+*.vssscc
+*.suo
+*.sln.docstates
+*.bak
+*.cache
+*.log
+*.tmp
+*.dotCover
+*.DotSettings
+*.dll*
+*.publish.xml
+*.log
+publish/
+
+# Folders ignored
+[Bb]in/
+[Dd]ebug*/
+[Rr]elease*/
+obj/
+.idea/
+_ReSharper*/
+[Tt]est[Rr]esult*
+.vs/
+
+# NuGet files
+packages
