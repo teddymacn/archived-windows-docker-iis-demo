@@ -1,0 +1,19 @@
+version: "2.1"
+services:
+  iis-demo:
+    build: .
+    image: "iis-demo:1.0"
+    ports:
+    - "80"
+    networks:
+      nat:
+        ipv4_address: 172.24.128.2
+    volumes:
+    - "c:/temp:c:/inetpub/logs/LogFiles"
+    environment:
+    - "env1=LIVE1"
+    - "env2=LIVE2"
+    - "HOSTS=1.2.3.4:TEST.COM"
+networks:
+  nat:
+    external: true
