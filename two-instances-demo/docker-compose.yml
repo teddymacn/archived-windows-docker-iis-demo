@@ -1,0 +1,40 @@
+version: "2.1"
+services:
+  apache:
+    build: .
+    image: "apache-proxy:1.0"
+    ports:
+    - "80:80"
+    networks:
+      nat:
+  iis-demo-1:
+    build: ../
+    image: "iis-demo:1.0"
+    ports:
+    - "80"
+    networks:
+      nat:
+        ipv4_address: 172.24.128.101
+    volumes:
+    - "c:/temp:c:/inetpub/logs/LogFiles"
+    environment:
+    - "env1=LIVE1"
+    - "env2=LIVE2"
+    - "HOSTS=1.2.3.4:TEST.COM"
+  iis-demo-2:
+    build: ../
+    image: "iis-demo:1.0"
+    ports:
+    - "80"
+    networks:
+      nat:
+        ipv4_address: 172.24.128.102
+    volumes:
+    - "c:/temp:c:/inetpub/logs/LogFiles"
+    environment:
+    - "env1=LIVE1"
+    - "env2=LIVE2"
+    - "HOSTS=1.2.3.4:TEST.COM"
+networks:
+  nat:
+    external: true
